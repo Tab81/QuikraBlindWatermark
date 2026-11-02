@@ -22,7 +22,7 @@ v1 使用 1 级 Haar DWT、4×4 正交 DCT、SVD 最大奇异值 `S[0]` 量化�
 
 ### 安装
 
-要求 Swift 5.9+。`Package.swift` 支持 macOS 13.3、iOS 16.4、tvOS 16.4、watchOS 9.4、visionOS 1.0。C 核心可跨 macOS/iOS 使用；Swift 封装当前使用 AppKit `NSImage`，iOS 端需改用 `CGImage`/RGBA8 缓冲或按平台适配。
+要求 Swift 5.9+。`Package.swift` 支持 macOS 13.0、iOS 16.4、tvOS 16.4、watchOS 9.4、visionOS 1.0。C 核心可跨 macOS/iOS 使用；Swift 封装当前使用 AppKit `NSImage`，iOS 端需改用 `CGImage`/RGBA8 缓冲或按平台适配。
 
 SwiftPM 依赖：
 

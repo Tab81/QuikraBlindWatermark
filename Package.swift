@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "BlindWaterMark",
     platforms: [
-        .macOS("13.3"),
+        .macOS("13.0"),
         .iOS("16.4"),
         .tvOS("16.4"),
         .watchOS("9.4"),
@@ -20,9 +20,6 @@ let package = Package(
             name: "BWM",
             path: "Sources/BWM",
             publicHeadersPath: ".",
-            cSettings: [
-                .define("ACCELERATE_NEW_LAPACK"),
-            ],
             linkerSettings: [
                 .linkedFramework("Accelerate"),
             ]

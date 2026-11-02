@@ -5,6 +5,7 @@
 ### Added
 
 - 发布 v1 盲水印 C 核心与 `BlindWatermarkKit` Swift 封装。
+- 最低支持 macOS 13.0；SVD 使用兼容旧系统的 CLAPACK ABI。
 - 自描述 8 字节头部：magic、版本、flags、长度、CRC-16/CCITT-FALSE。
 - 头部与载荷三次重复、密码控制的块顺序打乱。
 - 攻击回归测试、D1SweepSupport 诊断基线和最小 macOS 示例。

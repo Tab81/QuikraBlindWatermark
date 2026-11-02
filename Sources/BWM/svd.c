@@ -1,28 +1,27 @@
 #include "svd.h"
 
-#define ACCELERATE_NEW_LAPACK 1
 #include <Accelerate/Accelerate.h>
 #include <string.h>
 
-#if __has_include(<Accelerate/LAPACK.h>)
-#include <Accelerate/LAPACK.h>
-#endif
-
 void bwm_svd4x4(const float in[4][4], float U[4][4], float S[4], float VT[4][4]) {
-    const int m = 4;
-    const int n = 4;
-    const int lda = 4;
-    const int ldu = 4;
-    const int ldvt = 4;
-    const int lwork = 256;
-    const char jobu = 'A';
-    const char jobvt = 'A';
+    /*
+     * Use the legacy CLAPACK ABI so the package can deploy to macOS 13.0.
+     * The newer LAPACK sgesvd_ entry point is unavailable on the minimum target.
+     */
+    __CLPK_integer m = 4;
+    __CLPK_integer n = 4;
+    __CLPK_integer lda = 4;
+    __CLPK_integer ldu = 4;
+    __CLPK_integer ldvt = 4;
+    __CLPK_integer lwork = 256;
+    char jobu = 'A';
+    char jobvt = 'A';
 
     float a_col_major[16];
     float u_col_major[16];
     float vt_col_major[16];
     float work[256];
-    int info = 0;
+    __CLPK_integer info = 0;
 
     for (int row = 0; row < 4; ++row) {
         for (int col = 0; col < 4; ++col) {
